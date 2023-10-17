@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<meta charset="UTF-8">
-<body>
-<form action="#" th:action="@{/users/adduser}" th:object="${userReqDto}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-    <br/>
-    <label for="email">Email</label>
-    <input type="text" th:field="*{email}" id="email">
-    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-    <br/>
-    <input type="submit" value="Add User">
-</form>
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<th:block layout:fragment="content">
+    <div class="container mt-5">
+    <h2>User - Add</h2>
+    <form action="#" th:action="@{/users/adduser}" th:object="${userReqDto}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" th:field="*{name}" id="name" class="form-control">
+            <div class="alert alert-danger" role="alert"
+                    th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" th:field="*{email}" id="email" class="form-control">
+            <div class="alert alert-danger" role="alert"
+                 th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+        <div class="mt-5">
+            <input type="submit" class="btn btn-primary" value="Add User">
+        </div>
+    </form>
+    </div>
+</th:block>
 </html>

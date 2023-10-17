@@ -25,6 +25,7 @@ public class UserController {
     public String login() {
         return "login";
     }
+
     @GetMapping("/users/index")
     //@PreAuthorize("hasAnyRole('ADMIN')")
     //@PreAuthorize("hasAuthority('ROLE_ADMIN')")
