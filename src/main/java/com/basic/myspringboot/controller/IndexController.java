@@ -9,4 +9,10 @@ public class IndexController {
     public String index() {
         return "redirect:/login";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
 }
