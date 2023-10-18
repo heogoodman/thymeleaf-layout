@@ -53,7 +53,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/users/**").authenticated();
                 })
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .httpBasic(withDefaults())
+                .httpBasic(withDefaults())                                    //세션정책 정하기(세션없다)
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
