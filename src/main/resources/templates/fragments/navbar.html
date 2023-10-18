@@ -19,7 +19,7 @@
 <!--                <button class="btn btn-light ms-3">Login</button>-->
                 <a sec:authorize="!isAuthenticated()" class="btn btn-light" th:href="@{/login}">Login</a>
                 <form th:action="@{/app-logout}" method="POST" sec:authorize="isAuthenticated()">
-                    <button class="btn btn-light" type="submit">Logout</button>
+                    <button class="btn btn-light" type="submit">Logout</button> <!--인증이 되있으면로그아웃안되있으면로그인-->
                 </form>
             </div>
         </div>
