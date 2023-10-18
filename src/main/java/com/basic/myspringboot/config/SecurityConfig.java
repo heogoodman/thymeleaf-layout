@@ -42,7 +42,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    @Order(2)
+    @Order(1)
     public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
                 .formLogin(form -> form.disable())
@@ -61,7 +61,7 @@ public class SecurityConfig {
 
 
     @Bean
-    @Order(1)
+    @Order(2)
     public SecurityFilterChain formLoginFilterChain(HttpSecurity http, HandlerMappingIntrospector introspector)
             throws Exception {
         return http.csrf(csrf -> csrf.disable())

@@ -32,7 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         //Authorization 헤더의 값이 Bearer로 시작하는지를 체크
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            token = authHeader.substring(7);
+            token = authHeader.substring(7); //Bearer 공백까지 7글자
             username = jwtService.extractUsername(token);
         }
 
